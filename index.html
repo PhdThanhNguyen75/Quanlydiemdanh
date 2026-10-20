@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>QUẢN LÝ ĐIỂM DANH</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f2f3f5;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Khung iframe nhúng toàn màn hình ứng dụng Google Apps Script Web App -->
+  <iframe id="appFrame" allow="camera *; geolocation *; clipboard-read; clipboard-write"></iframe>
+
+  <script>
+    // Link Google Apps Script Web App của bạn
+    const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRYCpPz1UagmyBGSdlHVWdohpS0fqIJl0odUkSW26c9aJeE4RJZI1w-3JZc-P29aazTA/exec";
+    
+    // Tự động chuyển tiếp toàn bộ tham số (dành cho cả Giảng viên và Sinh viên khi quét mã QR)
+    const queryParams = window.location.search || "";
+    document.getElementById("appFrame").src = APPS_SCRIPT_URL + queryParams;
+  </script>
+</body>
+</html>
